@@ -1,1 +1,31 @@
+#ACTTTTGTCTAAACCCCCCGTCCTATATATAACT
 
+i =0
+
+import re
+from collections import defaultdict
+
+seq = input("digite o codigo genetico:\n")
+seq = seq.replace(' ','')
+bases = ['A','G','C','T']
+
+indexes = defaultdict(list)
+counts = dict()
+
+for base in bases:
+    comSeq = re.compile(base)
+    matches = comSeq.findall(seq)
+    count = len(matches)
+    counts[base] = count
+
+    start = 0
+
+    for match in matches:
+        index = seq.find(base, start)
+        indexes[base].append(index)
+        start = index +1
+
+a = indexes['A']
+g = indexes['G']
+c = indexes['C']
+t = indexes['T']
