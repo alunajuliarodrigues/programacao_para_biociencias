@@ -35,37 +35,40 @@ seq_c=[]
 seq_t=[]
 seq_g=[]
 
+print('As posições e tamanho de cadeias das Bases Hidrogenadas são:\n')
 # Sequência de 3 base A:
-for i in range(len(a)-2):
-    if a[i] == a[i+1] - 1 or a[i] == a[i-1] + 1:
-        seq_a.append(a[1])
+try:
+   for i in range(len(a)-2):
+      if a[i] == a[i+1] - 1 or a[i] == a[i-1] + 1:
+         seq_a.append(a[i])
+   print('A', seq_a[0]+1, len(seq_a))
+except IndexError:
+      print('Não há cadeias na base A')
 
 # Sequência de 3 base G:
-for i in range(len(g)-2):
-    if g[1] == g[i+1] - 1 or g[1] == g[i-1] + 1:
-       seq_g.append(g[1])
-       
-# Sequência de 3 base C:
-for i in range(len(c)-2):
-    if c[1] == c[i+1] - 1 or c[1] == c[i-1] + 1:
-       seq_c.append(c[1])
-       
-# Sequência de 3 base T:
-for i in range(len(t)-2):
-    if t[1] == t[i+1] -1 or t[1] == t[i-1] + 1:
-       seq_t.append(t[1])
-   
-print('As posições e tamanhos de cadeia das Bases Nitrogenadas são:\n')
-print('A', seq_a[0]+1, len(seq_a))
-print('T', seq_t[0]+1, len(seq_t))
-print('C', seq_c[0]+1, len(seq_c))
-print('G', seq_g[0]+1, len(seq_g))
+try:
+   for i in range(len(g)-2):
+       if g[i] == g[i+1] - 1 or g[i] == g[i-1] + 1:
+          seq_g.append(g[i])
+   print('G', seq_g[0]+1, len(seq_g))
+except IndexError:
+    print('Não há cadeias na base G')
 
-if len(g) <= 2:
-      print('Não há cadeias na base G')
-if len(a) <= 2:
-      print('Não há cadeias na base A')
-if len(t) <= 2:
-      print('Não há cadeias na base T')
-if len(c) <= 2:
-      print('Não há cadeias na base C')
+# Sequência de 3 base C:
+try:
+  for i in range(len(c)-2):
+      if c[i] == c[i+1] - 1 or c[i] == c[i-1] + 1:
+        seq_c.append(c[i])
+  print('C', seq_c[0]+1, len(seq_c))
+except IndexError:
+    print('Não há cadeias na base C')
+
+
+# Sequência de 3 base T:
+try:
+  for i in range(len(t)-2):
+    if t[i] == t[i+1] - 1 or t[i] == t[i-1] + 1:
+        seq_t.append(t[i])
+  print('T', seq_t[0]+1, len(seq_t))
+except IndexError:
+    print('Não há cadeias na base T')
